@@ -38,5 +38,5 @@ if (isset($_FILES["image_url"])) {
         echo "Gagal mengunggah file.";
     }
 }
-header("location:../home/menu.php");
+header("location:../home/menu.php?validasi=berhasil");
 }

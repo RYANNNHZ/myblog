@@ -3,18 +3,17 @@ require "../function/koneksi.php";
 require "../function/fungsi.php";
 
 session_start();
-echo $_SESSION['username'];
+
 
 
 $query = mysqli_query($koneksi, "SELECT * FROM `categories`");
 
-echo $_SESSION["password"];
 $cari_user_id = mysqli_query($koneksi, "SELECT * FROM `users` WHERE `password` = '$_SESSION[password]'");
 $tampil_name = mysqli_fetch_assoc($cari_user_id);
 
 if (isset($_POST['post'])) {
     // $uniqueString = uniqid();
-    $post_id = rand(0,1000) * rand(0,1000);
+    $post_id = rand(0, 1000) * rand(0, 1000);
 
     $created_at = date("Y-m-d", time());
 
@@ -40,7 +39,7 @@ if (isset($_POST['post'])) {
 
 <body>
     <div class="container mt-4">
-    
+
         <form action="../proses/uplodpost.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="username" value="<?= $_SESSION['username'] ?>">
             <input type="hidden" name="password" value="<?= $_SESSION['password'] ?>">
@@ -83,6 +82,7 @@ if (isset($_POST['post'])) {
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
