@@ -17,7 +17,9 @@ if (!$_SESSION) {
 }
 
 $tampil = ambil_semua_data_users("SELECT * FROM `users` WHERE `password` = '$password'");
-$posts = ambil_semua_data_post("SELECT * FROM `posts` WHERE `user_id` = '$tampil[user_id]' ");
+// $posts = ambil_semua_data_post("SELECT * FROM `posts` WHERE `user_id` = '$tampil[user_id]' ");
+
+$posts = ambil_semua_data_post("SELECT * FROM `posts` WHERE `user_id` = '$tampil[user_id]'");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,13 +35,54 @@ $posts = ambil_semua_data_post("SELECT * FROM `posts` WHERE `user_id` = '$tampil
         position: fixed;
         top: 10px;
     }
+
+    .content-image {
+        width: 100%;
+        height: 370px;
+        background-position: center;
+        background-size: cover;
+    }
+
+
+    @media (max-width:760px) {
+        .content-image {
+            height: 270px;
+        }
+    }
+
+    @media (max-width:573px) {
+        .content-image {
+            height: 420px;
+        }
+    }
+
+    @media (max-width:540px) {
+        .content-image {
+            height: 400px;
+
+        }
+    }
+
+    @media (max-width:350px) {
+        .content-image {
+            height: 300px;
+
+        }
+    }
+
+    @media (max-width:280px) {
+        .content-image {
+            height: 200px;
+
+        }
+    }
 </style>
 
 <body class="bg-light">
     <div class="container mt-4">
-        <div class="row">
+        <div class="row d-flex justify-content-center">
             <div class="col-md-4">
-                <div class="card">
+                <div class="card m-2">
                     <a href="gantipp.php?id=<?= $tampil['user_id'] ?>">
                         <img src="../pic/<?= $tampil['foto_profile'] ?>" class="card-img-top" alt="Profile Image">
                     </a>
@@ -50,26 +93,18 @@ $posts = ambil_semua_data_post("SELECT * FROM `posts` WHERE `user_id` = '$tampil
                 </div>
             </div>
 
-            <div class="col-md-8">
-                <div class="list-group">
-                    <?php foreach ($posts as $post) : ?>
-                        <img src="../img/<?= $post['image_url'] ?>" class="img-thumbnail" alt="...">
-
-                        <a href="other_post.php?post_id=<?= $post['post_id'] ?>" class="list-group-item list-group-item-action">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1"><?= $post['title'] ?></h5>
-                                <small><?= $post['created_at'] ?></small>
-                            </div>
-                            <p class="mb-1"><?= $post['content'] ?></p>
-                            <p class="mb-1"><?= $post['post_id'] ?></p>
-                            <small>Category: <?= $post['category_id'] ?></small>
-
-                            <!-- onclick="return alertshow()" -->
-                            <!-- href="../function/hapus.php?id=<?= $post['post_id'] ?>"  -->
-                            <a onclick="alertshow(<?= $post['post_id'] ?>)" class="btn btn-danger btn-sm">Hapus</a> 
-                        </a>
-                    <?php endforeach; ?>
-                </div>
+            <div class="row">
+                <?php foreach ($posts as $post) : ?>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="card h-100">
+                            <a href="../home/other_post.php?post_id=<?= $post['post_id'] ?>">
+                                <div class="content-image" style="background-image: url('../img/<?= $post['image_url'] ?>');">
+                                    <a class="btn btn-danger role=" button" onclick="alertshow(<?= $post['post_id'] ?>)">button</a>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
 
@@ -94,10 +129,32 @@ $posts = ambil_semua_data_post("SELECT * FROM `posts` WHERE `user_id` = '$tampil
                         text: "Your file has been deleted.",
                         icon: "success"
                     });
-                    document.location.href="../function/hapus.php?id="+post_id;
+                    document.location.href = "../function/hapus.php?id=" + post_id;
                 }
             });
         }
+
+        function validasi() {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        }
+      });
+      Toast.fire({
+        icon: "success",
+        title: "deleted sucsess"
+      });
+    }
+
+        <?php if (isset($_GET['validasi'])) : ?>
+            validasi()
+        <?php endif; ?>
     </script>
 </body>
 

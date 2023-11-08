@@ -98,7 +98,7 @@ if (isset($_POST['submit'])) {
             $_SESSION['role'] = $users['role'];
             $_SESSION['password'] = $users['password'];
 
-            header("location:menu.php");
+            header("location:menu.php?login=berhasil");
         } else {
             echo "akun anda di ban sementara oleh admin";
         }

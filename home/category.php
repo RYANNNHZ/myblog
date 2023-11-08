@@ -31,6 +31,45 @@ if (isset($_POST['pilih'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>menu</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+    
+    .content-image{
+      width: 100%;
+      height: 370px;
+      background-position: center;
+      background-size: cover;
+    }
+
+
+    @media (max-width:760px){
+      .content-image{
+        height: 270px;
+      }
+    }
+    @media (max-width:573px){
+      .content-image{
+        height: 420px;
+      }
+    }
+    @media (max-width:540px){
+      .content-image{
+        height: 400px;
+
+      }
+    }
+    @media (max-width:350px){
+      .content-image{
+        height: 300px;
+
+      }
+    }
+    @media (max-width:280px){
+      .content-image{
+        height: 200px;
+
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -77,13 +116,13 @@ if (isset($_POST['pilih'])) {
         <?php foreach ($posts as $post) : ?>
             <div class="col-lg-4 col-sm-6 mb-4">
                 <div class="card h-100">
-                    <a href="#"><img class="card-img-top" src="../img/<?= $post['image_url'] ?>" alt=""></a>
+                    <a href="./other_post.php?post_id=<?= $post['post_id'] ?>"><div class="content-image" style="background-image: url('../img/<?= $post['image_url'] ?>');" ></div></a>
                     <div class="card-body">
                         <h4 class="card-title">
                             <a href="other_post.php?post_id=<?= $post['post_id'] ?>&user_id=<?= $post['user_id'] ?>" style="text-decoration: none;"><?= $post['title'] ?></a>
                         </h4>
                         <img src="../pic/<?= $post['foto_profile'] ?>" width="40px" alt="..." class="img-thumbnail">
-                        <p style="display:inline;"><b><?= $post['username'] ?></b></p>
+                        <p style="display:inline;"><a style="text-decoration: none; color:black;" href="../home/other_profile.php?id=<?= $post['user_id'] ?>"><b><?= $post['username'] ?></b></a></p
                         <p style="display:inline;">|<?= $post['name'] ?>|</p>
                         <p class="card-text"><?= $post['content'] ?></p>
                     </div>

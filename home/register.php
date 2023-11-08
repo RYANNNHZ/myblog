@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
     $_SESSION['username'] = $_POST['username'];
     $_SESSION['role'] = $_POST['role'];
     $_SESSION['password'] = $_POST['password'];
-    header("location:menu.php");
+    header("location:menu.php?regis=berhasil");
 }
 ?>
 <!DOCTYPE html>
