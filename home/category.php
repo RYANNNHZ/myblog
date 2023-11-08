@@ -53,7 +53,7 @@ if (isset($_POST['pilih'])) {
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <img src="../image/favicion-removebg-preview.png" style="width:50px;" alt="">
+                <img src="../image/favicion (2).png" style="width:50px;" alt="">
 
             </div>
             <form action="" method="post">

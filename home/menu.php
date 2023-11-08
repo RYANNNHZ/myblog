@@ -44,15 +44,15 @@ $datas = ambil_semua_data_post("SELECT * FROM `posts` JOIN `categories` ON posts
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <img src="../image/favicion-removebg-preview.png" style="width:50px;" alt="">
+        <img src="../image/favicion (2).png" style="width:50px;" alt="">
         </div>
       </nav>
     
-    <div class="row d-flex justify-content-center">
+    <div class="row d-flex">
         <?php foreach($datas as $data): ?>
       <div class="col-lg-4 col-sm-6 mb-4">
         <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="../img/<?= $data['image_url'] ?>" alt=""></a>
+          <a href="#"><img class="card-img-top rounded" src="../img/<?= $data['image_url'] ?>" alt=""></a>
           <div class="card-body">
               <h4 class="card-title">
                 <a href="other_post.php?post_id=<?= $data['post_id'] ?>&user_id=<?= $data['user_id'] ?>" style="text-decoration: none;"><?= $data['title'] ?></a>
