@@ -15,10 +15,11 @@ $users = ambil_semua_data_users("SELECT * FROM `users` WHERE `user_id` = $user_i
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
+    <link rel="shortcut icon" href="../image/favicion (2).png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   </head>
   <body>
-    <h1>ganti pp</h1>
+
     <form action="../proses/uppp.php" method="post" enctype="multipart/form-data">
       <input type="hidden" name="user_id" value="<?= $users['user_id'] ?>">
       <input type="hidden" name="username" value="<?= $users['username'] ?>">

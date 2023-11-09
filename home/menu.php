@@ -22,6 +22,7 @@ $datas = ambil_semua_data_post("SELECT * FROM `posts` JOIN `categories` ON posts
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="../image/favicion (2).png" type="image/x-icon">
   <title>menu</title>
   <style>
     .content-image {
